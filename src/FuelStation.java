@@ -14,7 +14,7 @@ public class FuelStation {
             semaphore.acquire();
             Thread.sleep(5000);
             float size = gasPool.request(amount);
-            System.out.println("На станции осталось топлива: " + gasPool.toString());
+            System.out.println("На станции осталось топлива: " + gasPool.info());
             return size;
         } catch (InterruptedException e) {
             e.printStackTrace();

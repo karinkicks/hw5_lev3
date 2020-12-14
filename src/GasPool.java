@@ -22,10 +22,18 @@ public class GasPool {
        return 0f;
     }
 
-    @Override
-    public String toString() {
-        return "GasPool{" +
-                "real_fuel_reserve=" + real_fuel_reserve +
-                '}';
+
+    public String info(){
+        try{
+            lock.writeLock().lock();
+            return "GasPool{" +
+                    "real_fuel_reserve=" + real_fuel_reserve +
+                    '}';
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            lock.writeLock().unlock();
+        }
+        return null;
     }
 }
